@@ -21,7 +21,7 @@ module Blackjack
         10
       elsif
         card == "A"
-        if card + @score < 21
+        if  @score <= 10
           11
         else
           1
