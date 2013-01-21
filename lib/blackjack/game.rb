@@ -7,5 +7,6 @@ module Blackjack
       @dealer = Hand.new(@shoe)
       @player = Hand.new(@shoe)
     end
+    
   end
 end

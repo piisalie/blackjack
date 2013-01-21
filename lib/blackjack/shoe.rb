@@ -1,8 +1,6 @@
 module Blackjack
   class Shoe
-    def initialize
-      puts "How many decks?"
-      number_of_decks = gets.to_i
+    def initialize(number_of_decks=4)
       @cards = *(1..number_of_decks*52)
     end
 
