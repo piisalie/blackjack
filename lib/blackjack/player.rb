@@ -8,6 +8,7 @@ module Blackjack
 
     def score
       @score = Score.new(@hand.cards)
+      @score.total
     end
 
   end
