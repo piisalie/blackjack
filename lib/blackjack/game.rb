@@ -12,17 +12,17 @@ module Blackjack
     end
 
     def show_hands
-      puts "Dealer's hand: #{@dealer.hand[1]}"
-      puts "Your Hand:     #{@player.hand}"
+      puts "Dealer's Card: #{@dealer.hand[1]}"
+      puts "Your Hand: #{@player.hand}"
     end
 
-    def execute(action)
-      if action == "h" || action == "hit"
+    def execute(input)
+      if input == "h" || input == "hit"
         @player.hit
         show_hands
         get_player_input
       elsif
-        action == "s" || action == "stand"
+        input == "s" || input == "stand"
         play_dealer
       else
         puts "\n --Please choose a valid option.--\n\n"
@@ -37,14 +37,15 @@ module Blackjack
 
     def get_player_input
       puts "(h)it or (s)tand?"
-      action = gets.chomp
-      execute(action)
+      input = gets.chomp
+      execute(input)
     end
 
     def play_dealer
       while @dealer.score <= 17
         @dealer.hit
       end
+      puts "Dealer's Hand: #{@dealer.hand}"
     end
 
     def play
