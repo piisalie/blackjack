@@ -1,6 +1,5 @@
 module Blackjack
   class Player
-    attr_reader :hand
 
     def initialize(shoe)
       @hand = Hand.new(shoe) 
@@ -9,6 +8,10 @@ module Blackjack
     def score
       @score = Score.new(@hand.cards)
       @score.total
+    end
+
+    def show_hand
+      @hand.cards
     end
 
   end
