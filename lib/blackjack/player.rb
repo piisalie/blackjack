@@ -11,11 +11,38 @@ module Blackjack
     end
 
     def show_hand
-      @hand.cards
+      puts "Your hand: #{@hand.cards}"
     end
 
     def hit
       @hand.hit
+    end
+
+    def play_hand
+      puts "(h)it or (s)tand?"
+      input = gets.chomp
+      execute(input)
+    end
+
+    def execute(input)
+      if input == "h" || input == "hit"
+        hit
+        show_hand
+        play_hand
+      elsif input == "s" || input == "stand"
+        return
+      else
+        puts "\n --h or s... hit or stand... ONE OR THE OTHER!--\n\n"
+        play_hand
+      end
+    end
+
+    def bust?
+      if score > 21
+        true
+      else
+        false
+      end
     end
 
   end

@@ -2,7 +2,7 @@ module Blackjack
   class Dealer < Player
 
     def show_hand
-      @upcards
+      puts "Dealer's upcard(s): #{@upcards}"
     end
 
     def play_hand
