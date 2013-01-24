@@ -11,7 +11,7 @@ module Blackjack
     end
 
     def show_hand
-      puts "Your hand: #{@hand.cards}"
+      @hand.cards
     end
 
     def hit
@@ -19,15 +19,20 @@ module Blackjack
     end
 
     def play_hand
-      puts "(h)it or (s)tand?"
-      input = gets.chomp
-      execute(input)
+      if !bust?
+        puts "(h)it or (s)tand?"
+        input = gets.strip
+        execute(input)
+      else
+        puts "--Bust!-- :("
+      end
+      
     end
 
     def execute(input)
       if input == "h" || input == "hit"
         hit
-        show_hand
+        puts "#{show_hand}"
         play_hand
       elsif input == "s" || input == "stand"
         return

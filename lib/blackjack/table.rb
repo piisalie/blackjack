@@ -1,5 +1,6 @@
 module Blackjack
   class Table
+    attr_reader :player, :dealer
 
     def initialize
       @shoe   = Shoe.new
@@ -8,19 +9,27 @@ module Blackjack
     end
 
     def show_table
-      @dealer.show_hand
-      @player.show_hand
+      system "clear"
+      puts "- - - - - - - - - - - - - - - - - - - - - - -"
+      puts "Dealer's upcard(s): #{@dealer.show_hand}"
+      puts
+      puts "Your hand: #{@player.show_hand}"
+      puts "- - - - - - - - - - - - - - - - - - - - - - -"
     end
 
     def play_hands
-      @dealer.play_hand
       @player.play_hand
+      @dealer.play_hand
     end
 
-    def check_if_bust
-      puts "Dealer busts" if @dealer.bust?
-      puts "Player busts" if @player.bust?
+    def show_final_state
+      puts "- - - - - - - - - - - - - - - - - - - - - - -"
+      puts "Dealer's hand: #{@dealer.show_final_hand.cards}"
+      puts "Dealer's score: #{@dealer.score}"
+      puts
+      puts "Your final hand: #{@player.show_hand}"
+      puts "Your score: #{player.score}"
+      puts "- - - - - - - - - - - - - - - - - - - - - - -"
     end
-
   end
 end

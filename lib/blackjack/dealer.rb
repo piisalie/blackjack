@@ -2,7 +2,7 @@ module Blackjack
   class Dealer < Player
 
     def show_hand
-      puts "Dealer's upcard(s): #{@upcards}"
+      @upcards
     end
 
     def play_hand
@@ -10,6 +10,11 @@ module Blackjack
         hit
         @upcards << @hand.cards.last
       end
+      puts "Dealer Busts!" if bust?
+    end
+
+    def show_final_hand
+       @hand
     end
 
   end
