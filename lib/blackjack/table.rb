@@ -38,6 +38,8 @@ module Blackjack
         puts "Dealer wins the table."
       elsif @player.score > @dealer.score and !@player.bust?
         puts "You win the table."
+      elsif @player.bust? and @dealer.bust?
+        puts "Both bust"
       elsif @dealer.bust?
         puts "You win the table."
       elsif @player.bust?
